@@ -8,62 +8,83 @@ const generateHTML = require ('./dist:/generateHTML');
 const questions = [
     {
         type: 'input',
-        name: '',
-        message: '?'
+        name: 'managerName',
+        message: `What is the team manager's name?`
     },
     {
         type: 'input',
-        name: '',
-        message: '?'
+        name: 'managerId',
+        message: `What is the team manager's ID?`
     },
     {
         type: 'input',
-        name: '',
-        message: '?'
+        name: 'managerEmail',
+        message: `What is the team manager's email?`
     },
     {
         type: 'input',
-        name: '',
-        message: "?"
-    },
-    {
-        type: 'input',
-        name: '',
-        message: ''
-    },
-    {
-        type: 'input',
-        name: '',
-        message: '?',
+        name: 'managerOfficeNumber',
+        message: `What is the team manager's office number?`
     },
     {
         type: 'list',
-        name: '',
-        message: '?',
-        choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None']
+        name: 'teamMember',
+        message: 'What type of team member would you like to add?',
+        choices: ['Engineer', 'Intern', `I don't want to add any more team members`]
     },
     {
         type: 'input',
-        name: 'dependencies',
-        message: 'What command should be run to install dependencies?',
-        default: ('npm i')
+        name: 'engineerName',
+        message: `What is your engineer's name?`
     },
     {
         type: 'input',
-        name: 'tests',
-        message: 'What command should be run to run tests?',
-        default: ('npm test')
+        name: 'engineerId',
+        message: `What is your engineer's ID?`
     },
     {
         type: 'input',
-        name: '',
-        message: '?',
+        name: 'engineerEmail',
+        message: `What is your engineer's email?`
     },
     {
         type: 'input',
-        name: '',
-        message: '?',
+        name: 'engineerGithub',
+        message: `What is your engineer's GitHub username?`
+    },
+    {
+        type: 'list',
+        name: 'teamMember',
+        message: 'What type of team member would you like to add?',
+        choices: ['Engineer', 'Intern', `I don't want to add any more team members`]
+    },
+    {
+        type: 'input',
+        name: 'internName',
+        message: `What is your intern's name?`
+    },
+    {
+        type: 'input',
+        name: 'internId',
+        message: `What is your intern's ID?`
+    },
+    {
+        type: 'input',
+        name: 'internEmail',
+        message: `What is your intern's email?`
+    },
+    {
+        type: 'input',
+        name: 'internSchool',
+        message: `What is your intern's school?`
+    },
+    {
+        type: 'list',
+        name: 'teamMember',
+        message: 'What type of team member would you like to add?',
+        choices: ['Engineer', 'Intern', `I don't want to add any more team members`]
     }
+    
 ];
 
 // TODO: Create a function to write HTML file
@@ -77,7 +98,7 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
         .then(function(data) {
-            writeToFile('index.html', generateHTML(data));
+            writeToFile('team.html', generateHTML(data));
             // console.log(data)
         })
 }
