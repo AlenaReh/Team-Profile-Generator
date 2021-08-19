@@ -7,7 +7,7 @@ const Employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
-// const generateHTML = require ('./dist/generateHTML');
+const generateHTML = require ('./dist/generateHTML');
 
 var team = [];
 
