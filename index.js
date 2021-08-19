@@ -1,16 +1,19 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const chalk = require("chalk");
+// const expressValidator = require('express-validator');
 // const util = require('util');
 
-const Employee = require('./lib/employee');
-const Manager = require('./lib/manager');
-const Engineer = require('./lib/engineer');
-const Intern = require('./lib/intern');
+// const Employee = require('./lib/employee');
+// const Manager = require('./lib/manager');
+// const Engineer = require('./lib/engineer');
+// const Intern = require('./lib/intern');
 const generateHTML = require ('./dist/generateHTML');
 
 let team = [];
 
+const validateName = require
 // prompt questions
 const init = () => {
     inquirer.prompt ([ 
@@ -18,15 +21,16 @@ const init = () => {
         type: 'input',
         name: 'managerName',
         message: `What is the team manager's name?`,
-        // validateName: validateName = string => {
-        //     return string !== '' || `Please put in the team manager's name to continue`
-        // }
+        // The users input must be a letter
+        // validate: val => /[a-z]/gi.test(val),    
     },
     {
         type: 'input',
         name: 'managerId',
         message: `What is the team manager's ID?`,
         // validateId:
+        // validate: val => /[1-9]/gi.test(val), 
+        
     },
     {
         type: 'input',
@@ -40,14 +44,12 @@ const init = () => {
         message: `What is the team manager's office number?`,
         // validateOffice
     },
-
-
-    {
-        type: 'list',
-        name: 'teamMember',
-        message: 'What type of team member would you like to add?',
-        choices: ['Engineer', 'Intern', `I don't want to add any more team members`]
-    },
+    // {
+    //     type: 'list',
+    //     name: 'teamMember',
+    //     message: 'What type of team member would you like to add?',
+    //     choices: ['Engineer', 'Intern', `I don't want to add any more team members`]
+    // },
     ])
     .then((data) => {
         let manager = new Manager(data.name, data.id, data.email, data.office);
@@ -58,26 +60,7 @@ const init = () => {
     });
 }
 
-    // {
-    //     type: 'input',
-    //     name: 'engineerName',
-    //     message: `What is your engineer's name?`
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'engineerId',
-    //     message: `What is your engineer's ID?`
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'engineerEmail',
-    //     message: `What is your engineer's email?`
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'engineerGithub',
-    //     message: `What is your engineer's GitHub username?`
-    // },
+    
     // 
     // {
     //     type: 'input',
@@ -120,7 +103,7 @@ const addNextMember = () => {
             if (data.employee === 'Engineer' ) {
                 addEngineer ();
             } 
-            if (data.employee === 'Intern') {
+            else if (data.employee === 'Intern') {
                 addIntern();
             }
             else {
@@ -137,6 +120,32 @@ const addNextMember = () => {
 // }
 
 //create a function addEngineer() with prompt;
+const addEngineer = () => {
+    inquirer.prompt ([
+    {
+        type: 'input',
+        name: 'engineerName',
+        message: `What is your engineer's name?`
+    },
+    {
+        type: 'input',
+        name: 'engineerId',
+        message: `What is your engineer's ID?`
+    },
+    {
+        type: 'input',
+        name: 'engineerEmail',
+        message: `What is your engineer's email?`
+    },
+    {
+        type: 'input',
+        name: 'engineerGithub',
+        message: `What is your engineer's GitHub username?`
+    },
+]).then((data) => {
+    
+})
+}
 //create a function addIntern() with prompt;
 //create a function createTeam() with mock??;
 function createTeam () {
