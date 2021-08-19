@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const util = require('util');
+// const util = require('util');
 
 const Employee = require('./lib/employee');
 const Manager = require('./lib/manager');
@@ -9,10 +9,11 @@ const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const generateHTML = require ('./dist/generateHTML');
 
-var team = [];
+let team = [];
 
-// an array of questions for user input
-const questions = [
+// prompt questions
+const init = () => {
+    inquirer.prompt ([ 
     {
         type: 'input',
         name: 'managerName',
@@ -47,7 +48,15 @@ const questions = [
         message: 'What type of team member would you like to add?',
         choices: ['Engineer', 'Intern', `I don't want to add any more team members`]
     },
-
+    ])
+    .then((data) => {
+        let manager = new Manager(data.name, data.id, data.email, data.office);
+        team.push(manager);
+        // writeToFile('index.html', generateHTML(data));
+        // console.log(data)
+        addNextMember();
+    });
+}
 
     // {
     //     type: 'input',
@@ -96,27 +105,6 @@ const questions = [
     //     message: 'What type of team member would you like to add?',
     //     choices: ['Engineer', 'Intern', `I don't want to add any more team members`]
     // }
-    
-];
-
-// function to write HTML file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
-        err ? console.log(err) : console.log("Success! Your HTML file has been generated");
-    })
-}
-
-// function to initialize app
-function init() {
-    inquirer.prompt(questions)
-        .then((data) => {
-            let manager = new Manager(data.name, data.id, data.email, data.office);
-            team.push(manager);
-            // writeToFile('index.html', generateHTML(data));
-            // console.log(data)
-            addNextMember();
-        })
-}
 
 const addNextMember = () => {
     inquirer
@@ -141,9 +129,42 @@ const addNextMember = () => {
         });
 };
 
+// // function to write HTML file
+// function writeToFile(fileName, data) {
+//     fs.writeFile(fileName, data, (err) => {
+//         err ? console.log(err) : console.log("Success! Your HTML file has been generated");
+//     })
+// }
+
 //create a function addEngineer() with prompt;
 //create a function addIntern() with prompt;
 //create a function createTeam() with mock??;
+function createTeam () {
+    fs.writeFile(fileName, data, (err) => {
+        err ? console.log(err) : console.log("Success! Your HTML file has been generated");
+    })
+}
+
+//create a function to ask if user needs to add more members to the team;
+const addMoreMembers = () => {
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                name: 'teamMember',
+                message: 'What type of team member would you like to add?',
+                choices: ['Engineer', 'Intern', `I don't want to add any more team members`]
+            }
+        ])
+        .then((data) => {
+            if(data.teamMember !== `I don't want to add any more team members`) {
+                addNextMember();
+            }
+            else {
+                createTeam();
+            }
+        });
+}
 
 // Function call to initialize app
 init();
