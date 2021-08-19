@@ -1,0 +1,20 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlenaReh/Team-Profile-Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlenaReh/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/AlenaReh/Team-Profile-Generator#readme"
+}
