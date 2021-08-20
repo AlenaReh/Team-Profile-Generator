@@ -1,12 +1,21 @@
-const Employee = require('./lib/employee');
+const Employee = require('../lib/employee');
 
 describe("Employee", () => {
+    //test for the name via constructor 
     it("should return the name of the employee", () => {
-        const name = "Alena";
-        const result = new Employee();
+        let name = "Alena";
+        let result = new Employee();
         expect(result).toEqual(name);
     });
+
+    //test for the id via Constructor
+
+    //test for the email via Constructor
+
+    //test for the role via constructor
 });
+
+
 
 //test example
 // describe("Algo", () => {
