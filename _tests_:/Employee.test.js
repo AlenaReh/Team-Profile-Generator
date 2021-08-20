@@ -1,8 +1,6 @@
 const Employee = require('../lib/employee');
 
 describe("Employee", () => {
-    //can instantiate Employee instance
-
     //test for the setting of the name via Constructor 
     it("should return the name of the employee", () => {
         const testValue = new Employee("Alena"); 

@@ -2,8 +2,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const chalk = require("chalk");
-// const expressValidator = require('express-validator');
-// const util = require('util');
 
 const Employee = require('./lib/employee.js');
 const Manager = require('./lib/manager.js');
@@ -149,22 +147,12 @@ const addIntern = () => {
     }
 
 
-    // // function to write HTML file
-// function writeToFile(fileName, data) {
-//     fs.writeFile(fileName, data, (err) => {
-//         err ? console.log(err) : console.log("Success! Your HTML file has been generated");
-//     })
-// }
-
-
 //create a function createTeam() with mock??;
 function createTeam () {
-    fs.writeFile(fileName, generateHTML(data), (err) => {
+    fs.writeFile(My-team.html, generateHTML(data), (err) => {
         err ? console.log(err) : console.log("Success! Your HTML file has been generated");
     })
 }
-
-
 
 //create a function to ask if user needs to add more members to the team;
 const addMoreMembers = () => {
