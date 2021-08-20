@@ -1,4 +1,4 @@
-// TODO: Include packages needed for this application
+// packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const chalk = require("chalk");
@@ -78,12 +78,6 @@ const addNextMember = () => {
         });
 };
 
-// // function to write HTML file
-// function writeToFile(fileName, data) {
-//     fs.writeFile(fileName, data, (err) => {
-//         err ? console.log(err) : console.log("Success! Your HTML file has been generated");
-//     })
-// }
 
 //create a function addEngineer() with prompt;
 const addEngineer = () => {
@@ -145,12 +139,23 @@ const addIntern = () => {
         })
     }
 
+
+    // // function to write HTML file
+// function writeToFile(fileName, data) {
+//     fs.writeFile(fileName, data, (err) => {
+//         err ? console.log(err) : console.log("Success! Your HTML file has been generated");
+//     })
+// }
+
+
 // //create a function createTeam() with mock??;
 // function createTeam () {
 //     fs.writeFile(fileName, data, (err) => {
 //         err ? console.log(err) : console.log("Success! Your HTML file has been generated");
 //     })
 // }
+
+
 
 //create a function to ask if user needs to add more members to the team;
 const addMoreMembers = () => {
