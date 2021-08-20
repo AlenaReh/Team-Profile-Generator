@@ -38,6 +38,15 @@ const init = () => {
         name: 'email',
         message: `What is the team manager's email?`,
         // validateEmail
+        validate: answer => {
+            const pass = answer.match(
+              /\S+@\S+\.\S+/
+            );
+            if (pass) {
+              return true;
+            }
+            return "Please enter a valid email address.";
+          }
     },
     {
         type: 'input',
@@ -148,12 +157,12 @@ const addIntern = () => {
 // }
 
 
-// //create a function createTeam() with mock??;
-// function createTeam () {
-//     fs.writeFile(fileName, data, (err) => {
-//         err ? console.log(err) : console.log("Success! Your HTML file has been generated");
-//     })
-// }
+//create a function createTeam() with mock??;
+function createTeam () {
+    fs.writeFile(fileName, generateHTML(data), (err) => {
+        err ? console.log(err) : console.log("Success! Your HTML file has been generated");
+    })
+}
 
 
 
