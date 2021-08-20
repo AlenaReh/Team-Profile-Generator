@@ -41,7 +41,7 @@ const init = () => {
     },
     {
         type: 'input',
-        name: 'managerOfficeNumber',
+        name: 'officeNumber',
         message: `What is the team manager's office number?`,
         // validateOffice
     },
@@ -66,10 +66,10 @@ const addNextMember = () => {
             },
         ])
         .then((data) => {
-            if (data.employee === 'Engineer' ) {
+            if (data.teamMember === 'Engineer' ) {
                 addEngineer ();
             } 
-            else if (data.employee === 'Intern') {
+            else if (data.teamMember === 'Intern') {
                 addIntern();
             }
             else {
@@ -111,7 +111,7 @@ const addEngineer = () => {
 ]).then ((data) => {
     let engineer = new Engineer (data.name, data.id, data.email, data.githubUsername);
     team.push(engineer);
-    addMoreMembers();
+    addNextMember();
     })  
 };
 
@@ -141,7 +141,7 @@ const addIntern = () => {
     ]).then ((data) => {
         let intern = new Intern (data.name, data.id, data.email, data.school);
         team.push(intern);
-        addMoreMembers();
+        addNextMember();
         })
     }
 
@@ -167,7 +167,7 @@ const addMoreMembers = () => {
             if(data.teamMember === Engineer) {
                 addEngineer();
             }
-            else if(data.teamMember === Intern) {
+            if(data.teamMember === Intern) {
                 addIntern();
             }
             else {
