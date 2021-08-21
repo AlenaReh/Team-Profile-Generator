@@ -10,6 +10,38 @@ const Intern = require('./lib/intern.js');
 
 const generateHTML = require ('./dist/generateHTML');
 
+// The users input must be a string
+const validateName = answer => {
+    const pass = answer.match(
+      /^[a-zA-Z]+$/
+    );
+    if (pass) {
+      return true;
+    }
+    return "Please enter a valid name.";
+  };
+// validate a numerical value
+const validateNumber = answer => {
+    const pass = answer.match(
+      '^[0-9]+$'
+    );
+    if (pass) {
+      return true;
+    }
+    return "Please enter a numeric value.";
+  };
+  
+  // validating an Email input
+  const validateEmail = answer => {
+    const pass = answer.match(
+      /\S+@\S+\.\S+/
+    );
+    if (pass) {
+      return true;
+    }
+    return "Please enter a valid email address.";
+  };
+
 let team = [];
 
 // prompt questions
@@ -19,64 +51,25 @@ const init = () => {
         type: 'input',
         name: 'name',
         message: `What is the team manager's name?`,
-        // The users input must be a letter
-        validate: val => /[a-z]/gi.test(val),  
-        validate: answer => {
-            const pass = answer.match(
-              /^[a-zA-Z]+$/
-            );
-            if (pass) {
-              return true;
-            }
-            return "Please enter a valid name.";
-          }  
+        validate: validateName,
     },
     {
         type: 'input',
         name: 'id',
         message: `What is the team manager's ID?`,
-        // validateId:
-        // validate: val => /[1-9]/gi.test(val), 
-        validate: answer => {
-            const pass = answer.match(
-              '^[0-9]+$'
-            );
-            if (pass) {
-              return true;
-            }
-            return "Please enter a numeric value.";
-          }  
+        validate: validateNumber,
     },
     {
         type: 'input',
         name: 'email',
         message: `What is the team manager's email?`,
-        // validateEmail
-        validate: answer => {
-            const pass = answer.match(
-              /\S+@\S+\.\S+/
-            );
-            if (pass) {
-              return true;
-            }
-            return "Please enter a valid email address.";
-          }
+        validate: validateEmail,
     },
     {
         type: 'input',
         name: 'officeNumber',
         message: `What is the team manager's office number?`,
-        // validateOffice
-        validate: answer => {
-            const pass = answer.match(
-              '^[0-9]+$'
-            );
-            if (pass) {
-              return true;
-            }
-            return "Please enter a numeric value.";
-          }  
-
+        validate: validateNumber,
     },
 ])
     .then((data) => {
@@ -117,17 +110,20 @@ const addEngineer = () => {
     {
         type: 'input',
         name: 'name',
-        message: `What is your engineer's name?`
+        message: `What is your engineer's name?`,
+        validate: validateName,
     },
     {
         type: 'input',
         name: 'id',
-        message: `What is your engineer's ID?`
+        message: `What is your engineer's ID?`,
+        validate: validateNumber,
     },
     {
         type: 'input',
         name: 'email',
-        message: `What is your engineer's email?`
+        message: `What is your engineer's email?`,
+        validate: validateEmail,
     },
     {
         type: 'input',
@@ -147,17 +143,20 @@ const addIntern = () => {
     {
         type: 'input',
         name: 'name',
-        message: `What is your intern's name?`
+        message: `What is your intern's name?`,
+        validate: validateName,
     },
     {
         type: 'input',
         name: 'id',
-        message: `What is your intern's ID?`
+        message: `What is your intern's ID?`,
+        validate: validateNumber
     },
     {
         type: 'input',
         name: 'email',
-        message: `What is your intern's email?`
+        message: `What is your intern's email?`,
+        validate: validateEmail
     },
     {
         type: 'input',
