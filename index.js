@@ -14,22 +14,38 @@ let team = [];
 
 // prompt questions
 const init = () => {
-    // const Manager = require('./lib/manager');
     inquirer.prompt ([ 
     {
         type: 'input',
         name: 'name',
-        message: `What is the team manager's name?`
+        message: `What is the team manager's name?`,
         // The users input must be a letter
-        // validate: val => /[a-z]/gi.test(val),    
+        validate: val => /[a-z]/gi.test(val),  
+        validate: answer => {
+            const pass = answer.match(
+              /^[a-zA-Z]+$/
+            );
+            if (pass) {
+              return true;
+            }
+            return "Please enter a valid name.";
+          }  
     },
     {
         type: 'input',
         name: 'id',
-        message: `What is the team manager's ID?`
+        message: `What is the team manager's ID?`,
         // validateId:
         // validate: val => /[1-9]/gi.test(val), 
-        
+        validate: answer => {
+            const pass = answer.match(
+              '^[0-9]+$'
+            );
+            if (pass) {
+              return true;
+            }
+            return "Please enter a numeric value.";
+          }  
     },
     {
         type: 'input',
@@ -51,13 +67,22 @@ const init = () => {
         name: 'officeNumber',
         message: `What is the team manager's office number?`,
         // validateOffice
+        validate: answer => {
+            const pass = answer.match(
+              '^[0-9]+$'
+            );
+            if (pass) {
+              return true;
+            }
+            return "Please enter a numeric value.";
+          }  
+
     },
 ])
     .then((data) => {
         let manager = new Manager(data.name, data.id, data.email, data.officeNumber);
         team.push(manager);
-        // writeToFile('index.html', generateHTML(data));
-        // console.log(data)
+        
         addNextMember();
     });
 }
@@ -149,7 +174,7 @@ const addIntern = () => {
 
 //create a function createTeam() with mock??;
 function createTeam () {
-    fs.writeFile(My-team.html, generateHTML(data), (err) => {
+    fs.writeFile(myteam.html, generateHTML(data), (err) => {
         err ? console.log(err) : console.log("Success! Your HTML file has been generated");
     })
 }
