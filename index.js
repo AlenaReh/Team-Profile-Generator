@@ -75,7 +75,6 @@ const init = () => {
     .then((data) => {
         let manager = new Manager(data.name, data.id, data.email, data.officeNumber);
         team.push(manager);
-        
         addNextMember();
     });
 }
@@ -170,10 +169,9 @@ const addIntern = () => {
         })
     }
 
-
 //create a function createTeam() with mock??;
 function createTeam () {
-    fs.writeFile(myteam.html, generateHTML(data), (err) => {
+    fs.writeFile('myteam.html', generateHTML(team), (err) => {
         err ? console.log(err) : console.log("Success! Your HTML file has been generated");
     })
 }

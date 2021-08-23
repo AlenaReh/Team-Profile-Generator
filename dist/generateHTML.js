@@ -52,16 +52,27 @@ const generateCards = data => {
   //variable for card 
   let cardsTemplate =[]; 
   //filter role == 'Manager' then  managerCard()
-  //outcome add to the cardsTemplate
-  //filter role == 'Manager' then  managerCard()
-  //filter role == 'Manager' then  managerCard()
-
-  return cardsTemplate.join(); 
+  for (let i = 0; i<data.length; i ++) {
+      if (data[i].getRole() === "Manager") {
+        cardsTemplate.push(ManagerCard(data[i]))
+      }
+      if (data[i].getRole() === "Engineer") {
+        cardsTemplate.push(EngineerCard(data[i]))
+      }
+      if (data[i].getRole() === "Intern") {
+        cardsTemplate.push(InternCard(data[i]))
+      } 
+      else { 
+        return cardsTemplate.join();
+      }
+  }
+  
 }
 
 
-// TODO: Create a function to generate HTML for README
+// TODO: Create a function to generate HTML
 function generateHTML(data) {
+    console.log(`we're in generateHTML`, data);
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -82,7 +93,6 @@ function generateHTML(data) {
             </div>
         </div>
     </div>
-
 
     <div class="container">
     ${generateCards(data)}
