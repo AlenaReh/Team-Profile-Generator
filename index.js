@@ -70,7 +70,7 @@ const init = () => {
         name: 'officeNumber',
         message: (chalk.yellow(`What is the team manager's office number?`)),
         validate: validateNumber,
-    },
+    }
 ])
     .then((data) => {
         let manager = new Manager(data.name, data.id, data.email, data.officeNumber);
@@ -87,7 +87,7 @@ const addNextMember = () => {
                 name: 'teamMember',
                 message: (chalk.green('What type of team member would you like to add?')),
                 choices: ['Engineer', 'Intern', `I don't want to add any more team members`],
-            },
+            }
         ])
         .then((data) => {
             if (data.teamMember === 'Engineer' ) {
@@ -128,7 +128,7 @@ const addEngineer = () => {
         type: 'input',
         name: 'githubUsername',
         message: (chalk.yellow(`What is your engineer's GitHub username?`))
-    },
+    }
 ]).then ((data) => {
     let engineer = new Engineer (data.name, data.id, data.email, data.githubUsername);
     team.push(engineer);
@@ -161,7 +161,7 @@ const addIntern = () => {
         type: 'input',
         name: 'school',
         message: (chalk.yellow(`What is your intern's school?`))
-    },
+    }
     ]).then ((data) => {
         let intern = new Intern (data.name, data.id, data.email, data.school);
         team.push(intern);

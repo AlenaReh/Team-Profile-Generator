@@ -1,7 +1,10 @@
 const generateCards = data => {
 
+//variable for card 
+  let cardsTemplate =[]; 
+  
   const ManagerCard = manager => { 
-    return ` <div class="card shadow" style="display: inline-block;">
+    return `<div class="card shadow m-4" style="width: 16rem; height: 22rem; display: inline-block;">
     <div class="card-header bg-primary">
         <h2 class="card-title text-center">${manager.getName()}</h2>
         <h3 class="card-title text-center"><i class="fas fa-hard-hat mr-2"></i></h3>
@@ -13,11 +16,11 @@ const generateCards = data => {
             <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
         </ul>
     </div>
-</div>
-    `; 
+</div>`
   }
+  
   const EngineerCard = engineer => { 
-    return ` <div class="card shadow" style="display: inline-block;">
+    return `<div class="card shadow m-4" style="width: 16rem; height: 22rem; display: inline-block;">
     <div class="card-header bg-success">
         <h2 class="card-title text-center">${engineer.getName()}</h2>
         <h3 class="card-title text-center"><i class="fas fa-tools mr-2"></i></h3>
@@ -26,14 +29,14 @@ const generateCards = data => {
         <ul class="list-group">
             <li class="list-group-item">ID: ${engineer.getId()}</li>
             <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-            <li class="list-group-item">GitHub: <a href=https://github.com/${engineer.getGithub()}></a></li>
+            <li class="list-group-item">GitHub: <a href='https://github.com/${engineer.getGithub()}' target="_blank">https://github.com/${engineer.getGithub()}</a></li>
         </ul>
     </div>
-</div>
-    `; 
+</div>`
   }
+
   const InternCard = intern => { 
-    return ` <div class="card shadow" style="display: inline-block;">
+    return `<div class="card shadow m-4" style="width: 16rem; height: 22rem; display: inline-block;">
     <div class="card-header bg-warning">
         <h2 class="card-title text-center">${intern.getName()}</h2>
         <h3 class="card-title text-center"><i class="fas fa-graduation-cap mr-2"></i></h3>
@@ -45,13 +48,26 @@ const generateCards = data => {
             <li class="list-group-item">School: ${intern.getSchool()}</li>
         </ul>
     </div>
-</div>
-    `; 
+</div>`
   }
 
-  //variable for card 
-  let cardsTemplate =[]; 
-  //filter role == 'Manager' then  managerCard()
+  
+//   //filter roles 
+//   for (let i = 0; i<data.length; i ++) {
+//       if (data[i].getRole() === "Manager") {
+//         cardsTemplate.push(ManagerCard(data[i]))
+//       }
+//       if (data[i].getRole() === "Engineer") {
+//         cardsTemplate.push(EngineerCard(data[i]))
+//       }
+//       if (data[i].getRole() === "Intern") {
+//         cardsTemplate.push(InternCard(data[i]))
+//       }
+//     return cardsTemplate.join(data);
+    
+//   }
+
+  //filter roles 
   for (let i = 0; i<data.length; i ++) {
       if (data[i].getRole() === "Manager") {
         cardsTemplate.push(ManagerCard(data[i]))
@@ -61,18 +77,14 @@ const generateCards = data => {
       }
       if (data[i].getRole() === "Intern") {
         cardsTemplate.push(InternCard(data[i]))
-      } 
-      else { 
-        return cardsTemplate.join();
       }
   }
-  
+  return cardsTemplate.join().trim();
 }
 
 
-// TODO: Create a function to generate HTML
+// A function to generate HTML
 function generateHTML(data) {
-    console.log(`we're in generateHTML`, data);
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -94,13 +106,12 @@ function generateHTML(data) {
         </div>
     </div>
 
-    <div class="container">
+    <div class="container text-center">
     ${generateCards(data)}
     </div>
     
 </body>
-</html>
-  `;
+</html>`
     
   }
   
