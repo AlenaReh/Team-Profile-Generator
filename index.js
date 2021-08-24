@@ -18,7 +18,7 @@ const validateName = answer => {
     if (pass) {
       return true;
     }
-    return "Please enter a valid name.";
+    return (chalk.red("Please enter a valid name."));
   };
 // validate a numerical value
 const validateNumber = answer => {
@@ -28,7 +28,7 @@ const validateNumber = answer => {
     if (pass) {
       return true;
     }
-    return "Please enter a numeric value.";
+    return (chalk.red("Please enter a numeric value."));
   };
   
   // validating an Email input
@@ -39,7 +39,7 @@ const validateNumber = answer => {
     if (pass) {
       return true;
     }
-    return "Please enter a valid email address.";
+    return (chalk.red("Please enter a valid email address."));
   };
 
 let team = [];
@@ -50,25 +50,25 @@ const init = () => {
     {
         type: 'input',
         name: 'name',
-        message: `What is the team manager's name?`,
+        message: (chalk.yellow(`What is the team manager's name?`)),
         validate: validateName,
     },
     {
         type: 'input',
         name: 'id',
-        message: `What is the team manager's ID?`,
+        message: (chalk.yellow(`What is the team manager's ID?`)),
         validate: validateNumber,
     },
     {
         type: 'input',
         name: 'email',
-        message: `What is the team manager's email?`,
+        message: (chalk.yellow(`What is the team manager's email?`)),
         validate: validateEmail,
     },
     {
         type: 'input',
         name: 'officeNumber',
-        message: `What is the team manager's office number?`,
+        message: (chalk.yellow(`What is the team manager's office number?`)),
         validate: validateNumber,
     },
 ])
@@ -85,7 +85,7 @@ const addNextMember = () => {
             {
                 type: 'list',
                 name: 'teamMember',
-                message: 'What type of team member would you like to add?',
+                message: (chalk.green('What type of team member would you like to add?')),
                 choices: ['Engineer', 'Intern', `I don't want to add any more team members`],
             },
         ])
@@ -109,25 +109,25 @@ const addEngineer = () => {
     {
         type: 'input',
         name: 'name',
-        message: `What is your engineer's name?`,
+        message: (chalk.yellow(`What is your engineer's name?`)),
         validate: validateName,
     },
     {
         type: 'input',
         name: 'id',
-        message: `What is your engineer's ID?`,
+        message: (chalk.yellow(`What is your engineer's ID?`)),
         validate: validateNumber,
     },
     {
         type: 'input',
         name: 'email',
-        message: `What is your engineer's email?`,
+        message: (chalk.yellow(`What is your engineer's email?`)),
         validate: validateEmail,
     },
     {
         type: 'input',
         name: 'githubUsername',
-        message: `What is your engineer's GitHub username?`
+        message: (chalk.yellow(`What is your engineer's GitHub username?`))
     },
 ]).then ((data) => {
     let engineer = new Engineer (data.name, data.id, data.email, data.githubUsername);
@@ -142,25 +142,25 @@ const addIntern = () => {
     {
         type: 'input',
         name: 'name',
-        message: `What is your intern's name?`,
+        message: (chalk.yellow(`What is your intern's name?`)),
         validate: validateName,
     },
     {
         type: 'input',
         name: 'id',
-        message: `What is your intern's ID?`,
+        message: (chalk.yellow(`What is your intern's ID?`)),
         validate: validateNumber
     },
     {
         type: 'input',
         name: 'email',
-        message: `What is your intern's email?`,
+        message: (chalk.yellow(`What is your intern's email?`)),
         validate: validateEmail
     },
     {
         type: 'input',
         name: 'school',
-        message: `What is your intern's school?`
+        message: (chalk.yellow(`What is your intern's school?`))
     },
     ]).then ((data) => {
         let intern = new Intern (data.name, data.id, data.email, data.school);
@@ -183,7 +183,7 @@ const addMoreMembers = () => {
             {
                 type: 'list',
                 name: 'teamMember',
-                message: 'What type of team member would you like to add?',
+                message: (chalk.green('What type of team member would you like to add?')),
                 choices: ['Engineer', 'Intern', `I don't want to add any more team members`]
             }
         ])

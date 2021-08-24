@@ -21,8 +21,11 @@
     "lib": "lib"
   },
   "dependencies": {
+    "chalk": "^4.1.2",
+    "express": "^4.17.1",
     "fs": "0.0.1-security",
     "inquirer": "^8.1.2",
     "jest": "^27.0.6"
-  }
+  },
+  "devDependencies": {}
 }
