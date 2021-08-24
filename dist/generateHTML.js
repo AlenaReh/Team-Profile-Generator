@@ -18,7 +18,7 @@ const generateCards = data => {
   }
   const EngineerCard = engineer => { 
     return ` <div class="card shadow" style="display: inline-block;">
-    <div class="card-header bg-primary">
+    <div class="card-header bg-success">
         <h2 class="card-title text-center">${engineer.getName()}</h2>
         <h3 class="card-title text-center"><i class="fas fa-tools mr-2"></i></h3>
     </div>
@@ -26,7 +26,7 @@ const generateCards = data => {
         <ul class="list-group">
             <li class="list-group-item">ID: ${engineer.getId()}</li>
             <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-            <li class="list-group-item">GitHub: <a href = ${engineer.getGithub()}></a></li>
+            <li class="list-group-item">GitHub: <a href=https://github.com/${engineer.getGithub()}></a></li>
         </ul>
     </div>
 </div>
@@ -34,7 +34,7 @@ const generateCards = data => {
   }
   const InternCard = intern => { 
     return ` <div class="card shadow" style="display: inline-block;">
-    <div class="card-header bg-primary">
+    <div class="card-header bg-warning">
         <h2 class="card-title text-center">${intern.getName()}</h2>
         <h3 class="card-title text-center"><i class="fas fa-graduation-cap mr-2"></i></h3>
     </div>
