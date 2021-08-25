@@ -16,13 +16,19 @@ This app is a Node.js command-line application that takes in information about e
   
 ## Installation 
 
-The dependencies must be installed for this application to work properly: npm i
+The dependencies must be installed for this application to work properly: 
+
+        npm i
 
 ## Usage
 
 This application uses Jest for running the unit tests and Inquirer for collecting input from the user. You can start the application by using the following command:
 
-        node index.js
+        node index
+
+To run tests:
+
+        npm test
 
 ## Demo 
 
