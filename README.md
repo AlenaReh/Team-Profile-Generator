@@ -1,4 +1,5 @@
 # Team-Profile-Generator
+
 https://github.com/AlenaReh/Team-Profile-Generator
 
 ## Description 
@@ -8,8 +9,9 @@ This app is a Node.js command-line application that takes in information about e
 
 ## Table of Contents
 
-  - [Installation](#installation)
-  - [Usage](#usage)
+  - [Installation](#Installation)
+  - [Usage](#Usage)
+  - [Demo](#Demo)
   - [Contributions](#Contributions)
   - [Credits](#Credits)
   - [Contacts](#Contacts)
@@ -32,7 +34,8 @@ To run tests:
 
 ## Demo 
 
-  * 
+  * https://drive.google.com/file/d/1_QlR3jEumEBXrDJVCnIVVlPQ5rdixYkZ/view
+  * ![demo_still](assets/demo.png)
 
 
 ## Contributions
