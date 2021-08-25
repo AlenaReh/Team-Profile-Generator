@@ -13,7 +13,7 @@ const generateHTML = require ('./dist/generateHTML');
 // The users input must be a string
 const validateName = answer => {
     const pass = answer.match(
-      /^[a-zA-Z]+$/
+      /^[a-z A-Z]+$/
     );
     if (pass) {
       return true;

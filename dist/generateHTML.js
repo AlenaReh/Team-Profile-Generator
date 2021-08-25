@@ -51,23 +51,7 @@ const generateCards = data => {
 </div>`
   }
 
-  
-//   //filter roles 
-//   for (let i = 0; i<data.length; i ++) {
-//       if (data[i].getRole() === "Manager") {
-//         cardsTemplate.push(ManagerCard(data[i]))
-//       }
-//       if (data[i].getRole() === "Engineer") {
-//         cardsTemplate.push(EngineerCard(data[i]))
-//       }
-//       if (data[i].getRole() === "Intern") {
-//         cardsTemplate.push(InternCard(data[i]))
-//       }
-//     return cardsTemplate.join(data);
-    
-//   }
-
-  //filter roles 
+  //filtering roles 
   for (let i = 0; i<data.length; i ++) {
       if (data[i].getRole() === "Manager") {
         cardsTemplate.push(ManagerCard(data[i]))
@@ -79,7 +63,7 @@ const generateCards = data => {
         cardsTemplate.push(InternCard(data[i]))
       }
   }
-  return cardsTemplate.join().trim();
+  return cardsTemplate.join('').trim();
 }
 
 
